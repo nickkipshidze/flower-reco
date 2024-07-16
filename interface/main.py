@@ -73,12 +73,12 @@ def predict(image):
     class_names = FlowerDataset.class_names
     y_class = class_names[arg_max]
 
-    return json.dumps({
+    return {
         "probabilities": y_probs,
         "highest": arg_max,
         "classes": class_names,
         "prediction": y_class
-    })
+    }
 
 def main():
     serveraddr = ("127.0.0.1", 8000)
