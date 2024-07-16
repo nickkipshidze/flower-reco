@@ -1,5 +1,5 @@
 from http.server import BaseHTTPRequestHandler
-import json, os, sys, cgi, io, PIL.Image
+import json, os, sys, cgi, io, PIL.Image, base64
 import __main__
 
 BASE_DIR = os.path.dirname(sys.argv[0]) if os.path.dirname(sys.argv[0]) != "" else "."
@@ -41,10 +41,17 @@ class HTTPRequestHandler(BaseHTTPRequestHandler):
                         image_data = file_item.file.read()
                         image = PIL.Image.open(io.BytesIO(image_data))
                         response = __main__.predict(image)
+
+                        buffered = io.BytesIO()
+                        image.save(buffered, format=image.format)
+                        img_str = base64.b64encode(buffered.getvalue()).decode("utf-8")
+                        
+                        response["image"] = img_str
+
                         self.send_response(200)
                         self.send_header("Content-type", "application/json")
                         self.end_headers()
-                        self.wfile.write(response.encode())
+                        self.wfile.write(json.dumps(response).encode())
                         return
                 else:
                     self.send_response(400)
