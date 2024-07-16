@@ -8,14 +8,39 @@
     </head>
     <body>
         <main>
-            <div>
+            <div class="buttons-header">
                 <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data" class="custom-form">
-                    <label for="file" class="btn" style="background-color: #153BFF; color: #fff;">
-                        Upload file
-                    </label>
-                    <input type="file" name="file" id="file">
+                    <div class="file-selection">
+                        <label for="file" class="btn" style="background-color: #153BFF; color: #fff;">
+                            Upload file
+                        </label>
+                        <input type="file" name="file" id="file">
+                        <span id="file-name">No file chosen</span>
+                    </div>
                     <input type="submit" value="Upload" class="btn" style="background-color: #FF7527; color: #fff;">
                 </form>
+                <button class="btn" style="background-color: #A027FF; color: #fff;">Clear</button>
+            </div>
+            <div class="info-footer">
+                <div class="info-class-probs glass">
+                    <h1>Class probabilities</h1>
+                    <hr style="margin: 5px 20px;">
+                    <div>
+                        <h1>Prediction probabilities here</h1>
+                    </div>
+                </div>
+                <div class="info-prediction glass">
+                    <div class="flex-center" style="margin: 50px;">
+                        <img id="uploadPreview" style="border-radius: 10px; width: 224px; height: 224px; border: 1px solid #fff;">
+                    </div>
+                    <hr style="margin: 15px 20px;">
+                    <div style="display: flex; flex-direction: column;">
+                        <h1 style="width: 100%; text-align: center;">Final prediction</h1>
+                        <div style="display: flex; width: 100%; height: 100%; flex-grow: 1;" class="flex-center">
+                            <h1>no predictions</h1>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
         <script src="/static/script.js"></script>
