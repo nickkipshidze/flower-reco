@@ -14,6 +14,10 @@ document.getElementById("uploadForm").addEventListener("submit", function(event)
             const img = document.getElementById("uploadPreview");
             img.src = `data:image/jpeg;base64,${data.image}`;
         }
+        if (data.prediction) {
+            const label = document.getElementById("finalPrediction");
+            label.innerText = data.prediction;
+        }
     })
     .catch(error => {
         console.error("Error:", error);
