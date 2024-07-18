@@ -7,3 +7,7 @@ Trained on the [flowers 102](https://www.robots.ox.ac.uk/~vgg/data/flowers/102/)
 And the whole dataset looks like this:
 
 ![Dataset](./flowers-dataset.png)
+
+This is the WEB interface so far.
+
+![Preview](./preview.png)
