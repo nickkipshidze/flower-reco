@@ -18,6 +18,13 @@ document.getElementById("uploadForm").addEventListener("submit", function(event)
             const label = document.getElementById("finalPrediction");
             label.innerText = data.prediction;
         }
+        if (data.probabilities && data.classes) {
+            const probs = document.getElementById("predProbs");
+            probs.innerHTML = "";
+            for (let i=0; i<data.classes.length; i++) {
+                probs.innerHTML += `<div class="probability-bar"><h1>${data.classes[i]}</h1><div><div style="width: ${data.probabilities[i]*100}%;"></div></div></div>`;
+            }
+        }
     })
     .catch(error => {
         console.error("Error:", error);
