@@ -15,6 +15,19 @@ main {
     background: linear-gradient(#1F1F1F, #3C0046);
 }
 
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #2D333B;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #444C56;
+    border-radius: 4px;
+}
+
 .flex-center {
     display: flex;
     align-items: center;
@@ -98,4 +111,35 @@ main {
     font-weight: bold;
     padding: 5px 60px;
     cursor: pointer;
+}
+
+#predProbs {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 600px;
+}
+
+.probability-bar {
+    display: flex;
+    width: 100%;
+    font-size: 7px;
+    justify-content: space-between;
+}
+
+.probability-bar > h1 {
+    width: 50%;
+}
+
+.probability-bar > div {
+    width: 100%;
+    background-color: #000;
+    margin: 5px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.probability-bar > div > div {
+    height: 100%;
+    background-color: #fff;
 }
